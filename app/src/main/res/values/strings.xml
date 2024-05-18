@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">ProyectoPDM2024-GT1-Grupo1-Tema1</string>
+    <string name="nameHotel">Hotel Costa del Sol</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="register">Registrarse</string>
+    <string name="ratings">Calificaciones</string>
+    <string name="mail">Correo</string>
+    <string name="password">Contraseña</string>
+    <string name="enter">Ingresar</string>
+    <string name="fullName">Nombre Completo</string>
+    <string name="dateBirth">Fecha de Nacimiento</string>
+    <string name="formatDateBirth">dd/mm/aaaa</string>
+    <string name="previous">Anterior</string>
+    <string name="next">Siguiente</string>
+    <string name="ownAccount">¿Ya posee cuenta?</string>
+    <string name="loginHere">Ingresa aqui</string>
+    <string name="nameUser">Nombre de Usuario</string>
+    <string name="repeatPassword">Repetir Contraseña</string>
+    <string name="register2">Registrarme</string>
+    <string name="welcome">Bienvenido</string>
+    <string name="registration">Registro</string>
 </resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Redondear las esquinas inferiores de la imagen de la activity main-->
+    <style name="radius">
+        <item name="cornerSizeBottomRight">20dp</item>
+        <item name="cornerSizeBottomLeft">20dp</item>
+    </style>
+
+    <!--Otra forma de redondear revisarla en caso de fallar la primera-->
+    <style name="roundimageview" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+        <item name="color">@color/white</item>
+    </style>
+</resources>

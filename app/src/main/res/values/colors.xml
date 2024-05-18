@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="verde_hint">#4A635E</color>
+    <color name="verde_link">#008677</color>
+    <color name="blanco_fondo">#FDFAF5</color>
+    <color name="amarillo">#E1B154</color>
 </resources>

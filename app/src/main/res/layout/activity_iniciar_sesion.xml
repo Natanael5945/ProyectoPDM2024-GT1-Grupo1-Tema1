@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blanco_fondo"
+    tools:context=".IniciarSesion">
+
+    <!--TextView que representa el titulo de la vista "Iniciar Sesión"-->
+    <TextView
+        android:id="@+id/txtIniciarSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/edtxtCorreo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.667" />
+
+    <!--TextView del texto "Correo"-->
+    <TextView
+        android:id="@+id/txtCorreo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="@string/mail"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/edtxtCorreo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.13"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.959" />
+
+    <!--Componente con el cual solicitamos el correo al usuario
+    LUEGO CAMBIAR LOS VALORES DE EMS QUE SON LOS VALORES O CARACTERES QUE PERMITE EL EDITTEXT-->
+    <EditText
+        android:id="@+id/edtxtCorreo"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginBottom="48dp"
+        android:width="311dp"
+        android:background="@drawable/entrada_personalizada"
+        android:ems="10"
+        android:fontFamily="@font/roboto"
+        android:hint="@string/mail"
+        android:includeFontPadding="true"
+        android:inputType="textEmailAddress"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:textColorHint="@color/verde_hint"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/edtxtContraseña"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!--TextView que representa el texto "Contraseña"-->
+    <TextView
+        android:id="@+id/txtContraseña"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="@string/password"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/edtxtContraseña"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.141"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.972" />
+
+    <!--Componente con el cual le solicitamos la contraseña al usuario-->
+    <EditText
+        android:id="@+id/edtxtContraseña"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginBottom="300dp"
+        android:width="311dp"
+        android:background="@drawable/entrada_personalizada"
+        android:ems="10"
+
+        android:fontFamily="@font/roboto"
+        android:hint="@string/password"
+        android:includeFontPadding="true"
+        android:inputType="numberPassword"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:textColorHint="@color/verde_hint"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!--Boton con el cual al precionar regresa a la pantalla anterior-->
+    <Button
+        android:id="@+id/btnAnteriorLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="150.5dp"
+        android:backgroundTint="@color/black"
+        android:text="@string/previous"
+        app:icon="@drawable/flecha_izquierda"
+        app:iconGravity="textStart"
+        app:iconPadding="6dp"
+        app:iconSize="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.183"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtxtContraseña"
+        app:layout_constraintVertical_bias="0.099" />
+
+    <!--Boton con el cual al darle clic se iniciara sesion-->
+    <Button
+        android:id="@+id/btnIngresarLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="150.5dp"
+        android:backgroundTint="#E1B154"
+        android:text="@string/enter"
+        app:icon="@drawable/flecha_derecha"
+        app:iconGravity="textEnd"
+        app:iconPadding="6dp"
+        app:iconSize="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.223"
+        app:layout_constraintStart_toEndOf="@+id/btnAnteriorLogin"
+        app:layout_constraintTop_toBottomOf="@+id/edtxtContraseña"
+        app:layout_constraintVertical_bias="0.099" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
