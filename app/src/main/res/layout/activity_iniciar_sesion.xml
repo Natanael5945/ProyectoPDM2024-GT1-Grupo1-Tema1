@@ -10,13 +10,13 @@
 
     <!--TextView que representa el titulo de la vista "Iniciar Sesión"-->
     <TextView
-        android:id="@+id/txtIniciarSesion"
+        android:id="@+id/txt_iniciar_sesion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login"
         android:textColor="@color/black"
         android:textSize="36sp"
-        app:layout_constraintBottom_toTopOf="@+id/edtxtCorreo"
+        app:layout_constraintBottom_toTopOf="@+id/edtxt_correo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,14 +25,14 @@
 
     <!--TextView del texto "Correo"-->
     <TextView
-        android:id="@+id/txtCorreo"
+        android:id="@+id/txt_correo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto"
         android:text="@string/mail"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/edtxtCorreo"
+        app:layout_constraintBottom_toTopOf="@+id/edtxt_correo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.13"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +42,7 @@
     <!--Componente con el cual solicitamos el correo al usuario
     LUEGO CAMBIAR LOS VALORES DE EMS QUE SON LOS VALORES O CARACTERES QUE PERMITE EL EDITTEXT-->
     <EditText
-        android:id="@+id/edtxtCorreo"
+        android:id="@+id/edtxt_correo"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginBottom="48dp"
@@ -57,21 +57,21 @@
         android:paddingEnd="20dp"
         android:textColorHint="@color/verde_hint"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/edtxtContraseña"
+        app:layout_constraintBottom_toTopOf="@+id/edtxt_contraseña"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent" />
 
     <!--TextView que representa el texto "Contraseña"-->
     <TextView
-        android:id="@+id/txtContraseña"
+        android:id="@+id/txt_contraseña"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto"
         android:text="@string/password"
         android:textColor="@color/black"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/edtxtContraseña"
+        app:layout_constraintBottom_toTopOf="@+id/edtxt_contraseña"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.141"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +80,7 @@
 
     <!--Componente con el cual le solicitamos la contraseña al usuario-->
     <EditText
-        android:id="@+id/edtxtContraseña"
+        android:id="@+id/edtxt_contraseña"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginBottom="300dp"
@@ -103,7 +103,7 @@
 
     <!--Boton con el cual al precionar regresa a la pantalla anterior-->
     <Button
-        android:id="@+id/btnAnteriorLogin"
+        android:id="@+id/btn_anterior_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:width="150.5dp"
@@ -117,12 +117,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.183"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtxtContraseña"
+        app:layout_constraintTop_toBottomOf="@+id/edtxt_contraseña"
         app:layout_constraintVertical_bias="0.099" />
 
     <!--Boton con el cual al darle clic se iniciara sesion-->
     <Button
-        android:id="@+id/btnIngresarLogin"
+        android:id="@+id/btn_ingresar_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:width="150.5dp"
@@ -135,10 +135,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.223"
-        app:layout_constraintStart_toEndOf="@+id/btnAnteriorLogin"
-        app:layout_constraintTop_toBottomOf="@+id/edtxtContraseña"
+        app:layout_constraintStart_toEndOf="@+id/btn_anterior_login"
+        app:layout_constraintTop_toBottomOf="@+id/edtxt_contraseña"
         app:layout_constraintVertical_bias="0.099" />
 
+    <!--Lineas de guia, al final solo sirven como para el margen pero no afectan en nada la interfaz final-->
+    <!--Linea de guía izquierda-->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
@@ -146,6 +148,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_begin="20dp" />
 
+    <!--Linea de guía arriba-->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
@@ -153,19 +156,21 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="20dp" />
 
+    <!--Linea de guía derecha-->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp" />
+        app:layout_constraintGuide_end="20dp" />
 
+    <!--Linea de guía abajo-->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="20dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,7 +24,7 @@
 
     <!--Componente del texto o titulo hotel costa del sol-->
     <TextView
-        android:id="@+id/txtNombreHotel"
+        android:id="@+id/txt_nombre_hotel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto"
@@ -40,7 +40,7 @@
 
     <!--Componente del boton Iniciar Sesión-->
     <Button
-        android:id="@+id/btnIniciarSesion"
+        android:id="@+id/btn_iniciar_sesion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:width="311dp"
@@ -64,7 +64,7 @@
 
     <!--Componente del boton Registrarse-->
     <Button
-        android:id="@+id/btnRegistrarse"
+        android:id="@+id/btn_registrarse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:width="311dp"
@@ -82,12 +82,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnIniciarSesion"
+        app:layout_constraintTop_toBottomOf="@+id/btn_iniciar_sesion"
         app:layout_constraintVertical_bias="0.051" />
 
     <!--Componente TextView del texto Calificaciones-->
     <TextView
-        android:id="@+id/txtCalificaciones"
+        android:id="@+id/txt_calificaciones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/ratings"
