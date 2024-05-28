@@ -2,8 +2,15 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.ProyectoPDM2024GT1Grupo1Tema1" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!--<item name="colorPrimary">@color/white</item>-->
     </style>
 
     <style name="Theme.ProyectoPDM2024GT1Grupo1Tema1" parent="Base.Theme.ProyectoPDM2024GT1Grupo1Tema1" />
+
+    <style name="menuInferior" >
+        <item name="android:background">@color/white</item>
+        <item name="itemIconTint">@color/black</item>
+        <item name="itemTextColor">@color/black</item>
+
+    </style>
 </resources>

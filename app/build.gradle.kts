@@ -42,6 +42,12 @@ dependencies {
     implementation(libs.material) //dependencia de Material Components es de Material Design
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    //luego vemos
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    //estas 4 son
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

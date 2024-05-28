@@ -19,7 +19,7 @@ class RegistroParteUno : AppCompatActivity() {
             insets
         }
 
-        val btnRegistrarse: Button = findViewById(R.id.button2prueba)
+        val btnRegistrarse: Button = findViewById(R.id.btn_siguiente_registro_parte1)
 
         btnRegistrarse.setOnClickListener {
             val intent = Intent(this, RegistroParteDos::class.java)

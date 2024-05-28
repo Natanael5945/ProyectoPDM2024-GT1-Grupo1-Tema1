@@ -202,7 +202,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.166"
-        app:layout_constraintStart_toEndOf="@+id/txt_poseo_cuenta"
+        app:layout_constraintStart_toEndOf="@+id/txt_poseo_cuenta_registro_parte2"
         app:layout_constraintTop_toBottomOf="@id/btn_registrarme_registro_parte2"
         app:layout_constraintVertical_bias="0.221" />
 

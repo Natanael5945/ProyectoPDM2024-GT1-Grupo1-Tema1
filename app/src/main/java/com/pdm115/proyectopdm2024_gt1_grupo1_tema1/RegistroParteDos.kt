@@ -18,7 +18,7 @@ class RegistroParteDos : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val btnRegistrarse: Button = findViewById(R.id.button2)
+        val btnRegistrarse: Button = findViewById(R.id.btn_registrarme_registro_parte2)
 
         btnRegistrarse.setOnClickListener {
             val intent = Intent(this, RegistroCompletado::class.java)

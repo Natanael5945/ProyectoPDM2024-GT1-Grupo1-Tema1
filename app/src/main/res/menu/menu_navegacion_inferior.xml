@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/item_habitaciones"
+        android:icon="@drawable/habitacion"
+        android:title="@string/habitaciones_menu"/>
+
+    <item
+        android:id="@+id/item_hoteles"
+        android:icon="@drawable/hotel"
+        android:title="@string/hoteles_menu"/>
+
+    <item
+        android:id="@+id/item_reservas_activas"
+        android:icon="@drawable/reservacion"
+        android:title="@string/reservas_menu"/>
+
+    <item
+        android:id="@+id/item_configuracion"
+        android:icon="@drawable/configuraciones"
+        android:title="@string/configuracion_menu"/>
+</menu>

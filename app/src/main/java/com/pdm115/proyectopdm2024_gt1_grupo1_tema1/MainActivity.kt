@@ -21,8 +21,8 @@ class MainActivity : AppCompatActivity() {
 
         //Navegabilidad entre vistas de prueba
 
-        val btnLogin:Button = findViewById(R.id.btnIniciarSesion)
-        val btnRegistrarse:Button = findViewById(R.id.btnRegistrarse)
+        val btnLogin:Button = findViewById(R.id.btn_iniciar_sesion)
+        val btnRegistrarse:Button = findViewById(R.id.btn_registrarse)
 
         btnLogin.setOnClickListener {
             val intent = Intent(this, IniciarSesion::class.java)
