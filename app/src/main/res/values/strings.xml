@@ -19,8 +19,15 @@
     <string name="register2">Registrarme</string>
     <string name="welcome">Bienvenido</string>
     <string name="registration">Registro</string>
-    <string name="habitaciones_menu">Habitaciones</string>
-    <string name="hoteles_menu">Hoteles</string>
-    <string name="reservas_menu">Reservas</string>
-    <string name="configuracion_menu">Configuración</string>
+    <string name="bedrooms_menu">Habitaciones</string>
+    <string name="hotel_menu">Hoteles</string>
+    <string name="reserves_menu">Reservas</string>
+    <string name="settings_menu">Configuración</string>
+    <string name="hotel_title">HOTEL DE PLAYA COSTA DEL SOL</string>
+    <string name="info_personal">Información personal</string>
+    <string name="change_password">Cambiar contraseña</string>
+    <string name="billing">Facturación</string>
+    <string name="sign_off">Cerrar Sesión</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

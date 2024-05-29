@@ -4,6 +4,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="verde_hint">#4A635E</color>
     <color name="verde_link">#008677</color>
+    <color name="verde_menu_superior">#006B5F</color>
     <color name="blanco_fondo">#FDFAF5</color>
     <color name="amarillo">#E1B154</color>
+    <color name="color_piel">#FAF1E1</color>
 </resources>

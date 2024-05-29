@@ -1,17 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Configuraciones"
     android:background="@color/blanco_fondo">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textSize="30sp"
-        android:text="Fragmento 4" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/plus_jakarta_sans_regular"
+            android:text="@string/settings_menu"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.069"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.036" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:width="370dp"
+            android:height="48dp"
+            android:backgroundTint="@color/color_piel"
+            android:fontFamily="@font/montserrat"
+            android:gravity="start|center_vertical"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:text="@string/info_personal"
+            android:textColor="@color/amarillo"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:cornerRadius="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:rippleColor="@color/amarillo" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:width="370dp"
+            android:height="48dp"
+            android:backgroundTint="@color/color_piel"
+            android:fontFamily="@font/montserrat"
+            android:gravity="start|center_vertical"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:text="@string/change_password"
+            android:textColor="@color/amarillo"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:cornerRadius="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button"
+            app:rippleColor="@color/amarillo"/>
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:width="370dp"
+            android:height="48dp"
+            android:backgroundTint="@color/color_piel"
+            android:fontFamily="@font/montserrat"
+            android:gravity="start|center_vertical"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:text="@string/billing"
+            android:textColor="@color/amarillo"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:cornerRadius="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button2"
+            app:rippleColor="@color/amarillo"/>
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:width="370dp"
+            android:height="50dp"
+            android:backgroundTint="@color/black"
+            android:fontFamily="@font/roboto"
+            android:text="@string/sign_off"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:icon="@drawable/cerrar_sesion"
+            app:iconGravity="textEnd"
+            app:iconPadding="8dp"
+            app:iconSize="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button3"
+            app:layout_constraintVertical_bias="0.012" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
