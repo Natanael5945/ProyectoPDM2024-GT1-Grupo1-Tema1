@@ -3,11 +3,12 @@ package com.pdm115.proyectopdm2024_gt1_grupo1_tema1
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class HotelesAdapter: RecyclerView.Adapter<HotelesAdapter.ViewHolder>(){
+class HotelesAdapter(private val listener: OnButtonClickListener): RecyclerView.Adapter<HotelesAdapter.ViewHolder>(){
 
     private val hoteles = arrayOf("Hotel Costa del Sol", "Hotel la playita", "Hotel la palma")
 
@@ -48,6 +49,7 @@ class HotelesAdapter: RecyclerView.Adapter<HotelesAdapter.ViewHolder>(){
         val imgHotel: ImageView
         val direccionHotel: TextView
         val calificacionHotel: TextView
+        val botonVerHabitaciones: Button
 
         init {
             nombreHotel = itemView.findViewById(R.id.txt_nombre_hotel)
@@ -55,6 +57,11 @@ class HotelesAdapter: RecyclerView.Adapter<HotelesAdapter.ViewHolder>(){
             imgHotel = itemView.findViewById(R.id.imgv_hotel)
             direccionHotel = itemView.findViewById(R.id.txt_direccion_hotel)
             calificacionHotel = itemView.findViewById(R.id.txt_numero_estrellas_hotel)
+            botonVerHabitaciones = itemView.findViewById(R.id.btn_ver_habitaciones_hotel)
+
+            botonVerHabitaciones.setOnClickListener {
+                listener.onButtonClick(adapterPosition)
+            }
         }
     }
 }

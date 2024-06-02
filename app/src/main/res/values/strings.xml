@@ -48,4 +48,6 @@
     <string name="view_bedrroms">Ver habitaciones</string>
     <string name="number_star">5.0</string>
     <string name="hotel">Hoteles</string>
+    <string name="description_hotel">Descripción</string>
+    <string name="description_content">Contenido de la descripción</string>
 </resources>
