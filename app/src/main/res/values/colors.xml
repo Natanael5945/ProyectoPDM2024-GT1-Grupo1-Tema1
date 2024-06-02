@@ -8,4 +8,10 @@
     <color name="blanco_fondo">#FDFAF5</color>
     <color name="amarillo">#E1B154</color>
     <color name="color_piel">#FAF1E1</color>
+    <color name="gris_hint">#5D7A93</color>
+    <color name="contenedor_azul">#CDE8E1</color>
+    <color name="contorno_verde">#627C77</color>
+    <color name="blanco_encabezado">#F1DFC3</color>
+    <color name="gris">#C4CDD5</color>
+    <color name="naranja_precio">#E86D2A</color>
 </resources>

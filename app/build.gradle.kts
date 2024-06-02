@@ -42,6 +42,9 @@ dependencies {
     implementation(libs.material) //dependencia de Material Components es de Material Design
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+
+    implementation(libs.androidx.recyclerview) //Dependencia para el recyclerview
+
     //luego vemos
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)

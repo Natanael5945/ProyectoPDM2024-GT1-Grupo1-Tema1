@@ -14,7 +14,7 @@
 
 
         <TextView
-            android:id="@+id/text"
+            android:id="@+id/txt_configuracion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/plus_jakarta_sans_regular"
@@ -29,7 +29,7 @@
             app:layout_constraintVertical_bias="0.036" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btn_info_personal_configuraciones"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
@@ -51,7 +51,7 @@
             app:rippleColor="@color/amarillo" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btn_cambiar_contra_configuraciones"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -69,11 +69,11 @@
             app:cornerRadius="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button"
+            app:layout_constraintTop_toBottomOf="@+id/btn_info_personal_configuraciones"
             app:rippleColor="@color/amarillo"/>
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btn_facturacion_configuraciones"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -91,11 +91,11 @@
             app:cornerRadius="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button2"
+            app:layout_constraintTop_toBottomOf="@+id/btn_cambiar_contra_configuraciones"
             app:rippleColor="@color/amarillo"/>
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/btn_cerrar_sesion_configuraciones"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -113,7 +113,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button3"
+            app:layout_constraintTop_toBottomOf="@+id/btn_facturacion_configuraciones"
             app:layout_constraintVertical_bias="0.012" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

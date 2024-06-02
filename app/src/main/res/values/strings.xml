@@ -28,6 +28,20 @@
     <string name="change_password">Cambiar contraseña</string>
     <string name="billing">Facturación</string>
     <string name="sign_off">Cerrar Sesión</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="new_password">Nueva contraseña</string>
+    <string name="old_password">Contraseña antigua</string>
+    <string name="repeat_password2">Repetir contraseña</string>
+    <string name="save">Guardar</string>
+    <string name="dui">DUI</string>
+    <string name="number_digits_dui">########-#</string>
+    <string name="example_mail">pdm115@ues.edu.sv</string>
+    <string name="change_photo">Cambiar foto</string>
+    <string name="upload">Subir</string>
+    <string name="example_reservation">Reservación de habitación</string>
+    <string name="example_Date">15 de abril</string>
+    <string name="last_reservation">Ultimas 10 reservas</string>
+    <string name="name_bedrooms">Habitación platino</string>
+    <string name="star_rating_number">Calificación: 5.0</string>
+    <string name="price_bedrooms">$##.##</string>
+
 </resources>
