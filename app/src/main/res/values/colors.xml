@@ -4,6 +4,17 @@
     <color name="white">#FFFFFFFF</color>
     <color name="verde_hint">#4A635E</color>
     <color name="verde_link">#008677</color>
+    <color name="verde_menu_superior">#006B5F</color>
     <color name="blanco_fondo">#FDFAF5</color>
     <color name="amarillo">#E1B154</color>
+    <color name="color_piel">#FAF1E1</color>
+    <color name="gris_hint">#5D7A93</color>
+    <color name="contenedor_azul">#CDE8E1</color>
+    <color name="contorno_verde">#627C77</color>
+    <color name="blanco_encabezado">#F1DFC3</color>
+    <color name="gris">#C4CDD5</color>
+    <color name="naranja_precio">#E86D2A</color>
+    <color name="gris_subtitulo">#3F4946</color>
+    <color name="gris_parrafo">#878787</color>
+
 </resources>

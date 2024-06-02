@@ -3,20 +3,20 @@
     <item
         android:id="@+id/item_habitaciones"
         android:icon="@drawable/habitacion"
-        android:title="@string/habitaciones_menu"/>
+        android:title="@string/bedrooms_menu"/>
 
     <item
         android:id="@+id/item_hoteles"
         android:icon="@drawable/hotel"
-        android:title="@string/hoteles_menu"/>
+        android:title="@string/hotel_menu"/>
 
     <item
         android:id="@+id/item_reservas_activas"
         android:icon="@drawable/reservacion"
-        android:title="@string/reservas_menu"/>
+        android:title="@string/reserves_menu"/>
 
     <item
         android:id="@+id/item_configuracion"
         android:icon="@drawable/configuraciones"
-        android:title="@string/configuracion_menu"/>
+        android:title="@string/settings_menu"/>
 </menu>

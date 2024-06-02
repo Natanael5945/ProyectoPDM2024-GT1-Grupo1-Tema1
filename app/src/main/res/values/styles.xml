@@ -12,4 +12,20 @@
         <item name="cornerSize">20dp</item>
         <item name="color">@color/white</item>
     </style>
+
+    <style name="ImagenCircular">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="ImagenCircular2">
+        <item name="cornerSize">30%</item>
+    </style>
+
+    <!-- res/values/styles.xml -->
+    <style name="estilo_ranting_bar" parent="Widget.AppCompat.RatingBar">
+        <item name="android:minHeight">20dip</item> <!-- Ajusta el tamaño de la estrella -->
+        <item name="android:maxHeight">20dip</item> <!-- Ajusta el tamaño de la estrella -->
+        <item name="android:progressDrawable">@drawable/personalizacion_estrellas</item>
+    </style>
+
 </resources>

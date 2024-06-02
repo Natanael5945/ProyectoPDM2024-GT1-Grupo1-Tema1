@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,7 +37,19 @@ class ReservasActivas : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_reservas_activas, container, false)
+        val view = inflater.inflate(R.layout.fragment_reservas_activas, container, false)
+
+        // Encontrar el RecyclerView utilizando la vista inflada
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view_reservas_activas)
+
+        // Configurar el LayoutManager
+        recyclerView.layoutManager = LinearLayoutManager(context)
+
+        // Configurar el Adaptador
+        val adapter = ReservasActivasAdapter()
+        recyclerView.adapter = adapter
+
+        return view
     }
 
     companion object {

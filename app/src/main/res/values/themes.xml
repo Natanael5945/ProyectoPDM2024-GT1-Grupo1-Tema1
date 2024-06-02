@@ -11,6 +11,19 @@
         <item name="android:background">@color/white</item>
         <item name="itemIconTint">@color/black</item>
         <item name="itemTextColor">@color/black</item>
+    </style>
+
+    <style name="menuSuperior" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorControlNormal">@color/white</item>
+        <item name="titleTextColor">@color/white</item>
 
     </style>
+<!--
+    <style name="Boton"  parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="backgroundTint">@color/color_piel</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">0dp</item>
+    </style>
+    -->
+
 </resources>
