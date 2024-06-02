@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "507654735010",
+    "project_id": "pdm115-737de",
+    "storage_bucket": "pdm115-737de.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:507654735010:android:bcb797fcc2198de28b03fb",
+        "android_client_info": {
+          "package_name": "com.pdm115.proyectopdm2024_gt1_grupo1_tema1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxqJJcsHJAl7FjwLPPApoN1mRS6-wYk-E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
