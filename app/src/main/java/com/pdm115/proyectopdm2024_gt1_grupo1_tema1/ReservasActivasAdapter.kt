@@ -9,13 +9,13 @@ import androidx.recyclerview.widget.RecyclerView
 
 class ReservasActivasAdapter: RecyclerView.Adapter<ReservasActivasAdapter.ViewHolder>() {
 
-    val tipoHabitacionTitulo = arrayOf("Habitación Platinum", "Habitación Silver", "Habitación Gold", "Habitación Ruby", "Habitación Sapphire")
+    private val tipoHabitacionTitulo = arrayOf("Habitación Platinum", "Habitación Silver", "Habitación Gold", "Habitación Ruby", "Habitación Sapphire")
 
-    val precioHabit = arrayOf("$500.00", "$450.00", "$400.00", "$350.00", "$300.00")
+    private val precioHabit = arrayOf("$500.00", "$450.00", "$400.00", "$350.00", "$300.00")
 
-    val calificacionHabit = arrayOf("Calificacióm: 5.0", "Califcación: 4.5", "Calificación: 4.0", "Califación: 3.5", "Califacación: 3.0")
+    private val calificacionHabit = arrayOf("Calificacióm: 5.0", "Califcación: 4.5", "Calificación: 4.0", "Califación: 3.5", "Califacación: 3.0")
 
-    val imgHabitacion = intArrayOf(R.drawable.habitacion_uno, R.drawable.habitacion_dos, R.drawable.habitacion_tres, R.drawable.habitacion_cuatro, R.drawable.habitacion_cinco)
+    private val imgHabitacion = intArrayOf(R.drawable.habitacion_uno, R.drawable.habitacion_dos, R.drawable.habitacion_tres, R.drawable.habitacion_cuatro, R.drawable.habitacion_cinco)
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(viewGroup.context).inflate(R.layout.cardview_layout_reservas_activas, viewGroup, false)

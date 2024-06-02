@@ -8,9 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 
 class UltimasReservasAdapter: RecyclerView.Adapter<UltimasReservasAdapter.ViewHolder>() {
 
-    val reservacion = arrayOf("prueba1", "prueba2", "prueba3")
+    private val reservacion = arrayOf("prueba1", "prueba2", "prueba3")
 
-    val fecha = arrayOf("15/02/2024", "24/05/2024", "05/03/2024")
+    private val fecha = arrayOf("15/02/2024", "24/05/2024", "05/03/2024")
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(viewGroup.context).inflate(R.layout.cardview_layout_ultimas_reservas, viewGroup, false)
 

@@ -43,5 +43,9 @@
     <string name="name_bedrooms">Habitación platino</string>
     <string name="star_rating_number">Calificación: 5.0</string>
     <string name="price_bedrooms">$##.##</string>
-
+    <string name="number_bedrooms">10 habitaciones</string>
+    <string name="adders_hotel">Dirección de hotel</string>
+    <string name="view_bedrroms">Ver habitaciones</string>
+    <string name="number_star">5.0</string>
+    <string name="hotel">Hoteles</string>
 </resources>
