@@ -1,5 +1,6 @@
 package com.pdm115.proyectopdm2024_gt1_grupo1_tema1
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.commit
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseAuth
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -42,7 +44,8 @@ class Configuraciones : Fragment() {
         val infoPersonalBoton : Button = view.findViewById(R.id.btn_info_personal_configuraciones)
         val cambiarContraBoton : Button = view.findViewById(R.id.btn_cambiar_contra_configuraciones)
         val facturasBoton : Button = view.findViewById(R.id.btn_facturacion_configuraciones)
-
+        val cerrarSesionButton: Button = view.findViewById(R.id.btn_cerrar_sesion_configuraciones)
+        
         infoPersonalBoton.setOnClickListener {
             parentFragmentManager.commit {
                 replace(R.id.frame_contenedor, EditarInformacionPersonal())
@@ -63,6 +66,11 @@ class Configuraciones : Fragment() {
                 addToBackStack(null)
             }
         }
+
+        cerrarSesionButton.setOnClickListener {
+            cerrarSesion()
+        }
+
         return view
     }
 
@@ -84,5 +92,11 @@ class Configuraciones : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    private fun cerrarSesion() {
+        FirebaseAuth.getInstance().signOut()
+        val intent = Intent(activity, MainActivity::class.java)
+        startActivity(intent)
     }
 }
