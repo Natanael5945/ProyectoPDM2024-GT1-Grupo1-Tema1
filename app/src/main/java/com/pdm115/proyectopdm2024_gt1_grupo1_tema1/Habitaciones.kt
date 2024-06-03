@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,7 +37,19 @@ class Habitaciones : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_habitaciones, container, false)
+        val view = inflater.inflate(R.layout.fragment_habitaciones, container, false)
+
+        // Encontrar el RecyclerView utilizando la vista inflada
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view_habitaciones_populares)
+
+        // Configurar el LayoutManager
+        recyclerView.layoutManager = GridLayoutManager(context, 2)
+
+        // Configurar el Adaptador
+        val adapter = HabitacionesAdapter()
+        recyclerView.adapter = adapter
+
+        return view
     }
 
     companion object {

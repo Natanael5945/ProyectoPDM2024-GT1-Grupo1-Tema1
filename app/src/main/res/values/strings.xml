@@ -50,4 +50,8 @@
     <string name="hotel">Hoteles</string>
     <string name="description_hotel">Descripción</string>
     <string name="description_content">Contenido de la descripción</string>
+    <string name="popular_rooms">Habitaciones populares</string>
+    <string name="search_here">Buscar habitación...</string>
+    <string name="name_popular_rooms">Habitación doble</string>
+    <string name="per_person">p/p</string>
 </resources>
