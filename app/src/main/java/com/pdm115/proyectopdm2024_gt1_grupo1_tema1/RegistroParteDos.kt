@@ -1,5 +1,6 @@
 package com.pdm115.proyectopdm2024_gt1_grupo1_tema1
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -48,19 +49,25 @@ class RegistroParteDos : AppCompatActivity() {
                 Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            val nuevoUsuario = Usuario(
-                nombreUsuario = nombreUsuario.text.toString(),
-                nombreCompleto = nombreCompleto!!,
-                correoUsuario = correoElectronico!!,
-                clave = contrasena.text.toString(),
-                fechaNacimiento = fechaNacimiento!!,
-                rol = getClientRol()!!,
-                isUsuario = nombreUsuario.text.toString(),
-                avatarPath = ""
-            )
-            this.crearUsuarioFirebase(nuevoUsuario)
-            val intent = Intent(this, RegistroCompletado::class.java)
-            startActivity(intent)
+            getClientRol { clienteRol ->
+                if (clienteRol != null) {
+                    if (clienteRol.nombreRol != "") {
+                        val nuevoUsuario = Usuario(
+                            idUsuario = UUID.randomUUID().toString(),
+                            nombreUsuario = nombreUsuario.text.toString(),
+                            nombreCompleto = nombreCompleto!!,
+                            correoUsuario = correoElectronico!!,
+                            clave = contrasena.text.toString(),
+                            fechaNacimiento = fechaNacimiento!!,
+                            rol = clienteRol,
+                            avatarPath = ""
+                        )
+                        this.crearUsuarioFirebase(nuevoUsuario)
+                    }
+                }
+            }
+
+
         }
 
         btnRegresar.setOnClickListener {
@@ -84,35 +91,46 @@ class RegistroParteDos : AppCompatActivity() {
         confirmarContrasena = findViewById(R.id.edtxt_repetir_contrasenia)
     }
 
+    @SuppressLint("ShowToast")
     private fun crearUsuarioFirebase(nuevoUsuario: Usuario)
     {
-        // verificar si existe el rol cliente
-        if(nuevoUsuario.rol.idRol == ""){
-            Toast.makeText(this, "Rol no encontrado", Toast.LENGTH_SHORT).show()
-            return
-        }
-        // verificar si el usuario ya existe
-        FirebaseDatabase.getInstance().getReference("Usuarios").child(nuevoUsuario.isUsuario).get().addOnSuccessListener {
-            if (it.exists()) {
+
+        existUserFirebase(nuevoUsuario) { exist ->
+            if (exist as Boolean) {
+                // user already exists
                 Toast.makeText(this, "El usuario ya existe", Toast.LENGTH_SHORT).show()
-                return@addOnSuccessListener
+            } else {
+                // register on firebasedatabase, then and firebase auth
+        FirebaseDatabase.getInstance().getReference("Usuarios").child(nuevoUsuario.idUsuario).setValue(nuevoUsuario).addOnSuccessListener {
+                Toast.makeText(this, "Usuario registrado", Toast.LENGTH_SHORT).show()
+                    // register on firebase auth
+                    FirebaseAuth.getInstance().createUserWithEmailAndPassword(nuevoUsuario.correoUsuario, nuevoUsuario.clave).addOnSuccessListener {
+                        Toast.makeText(this, "Usuario registrado en Firebase Auth", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, RegistroCompletado::class.java)
+                        startActivity(intent)
+                    }.addOnFailureListener {
+                        Toast.makeText(this, "Error al registrar usuario en Firebase Auth", Toast.LENGTH_SHORT).show()
+                        //- delete usuario
+                        FirebaseDatabase.getInstance().getReference("Usuarios").child(nuevoUsuario.idUsuario).removeValue()
+                    }
+                }.addOnFailureListener {
+                    Toast.makeText(this, "Error al registrar usuario", Toast.LENGTH_SHORT).show()
+                }
             }
-        }.addOnFailureListener {
-            Toast.makeText(this, "Error al verificar usuario", Toast.LENGTH_SHORT).show()
-            return@addOnFailureListener
         }
 
-        // register on firebasedatabase, then and firebase auth
-        FirebaseDatabase.getInstance().getReference("Usuarios").child(nuevoUsuario.isUsuario).setValue(nuevoUsuario).addOnSuccessListener {
-            Toast.makeText(this, "Usuario registrado", Toast.LENGTH_SHORT).show()
-            // register on firebase auth
-            FirebaseAuth.getInstance().createUserWithEmailAndPassword(nuevoUsuario.correoUsuario, nuevoUsuario.clave).addOnSuccessListener {
-                Toast.makeText(this, "Usuario registrado en Firebase Auth", Toast.LENGTH_SHORT).show()
-            }.addOnFailureListener {
-                Toast.makeText(this, "Error al registrar usuario en Firebase Auth", Toast.LENGTH_SHORT).show()
-            }
+        
+    }
+
+    private fun existUserFirebase(nuevoUsuario: Usuario, callback: (Boolean) -> Unit) {
+        
+
+        val databaseReference = FirebaseDatabase.getInstance().getReference("Usuarios")
+        val query = databaseReference.orderByChild("correoUsuario").equalTo(nuevoUsuario.correoUsuario)
+        query.get().addOnSuccessListener {
+            callback(it.exists())
         }.addOnFailureListener {
-            Toast.makeText(this, "Error al registrar usuario", Toast.LENGTH_SHORT).show()
+            callback(false)
         }
     }
 
@@ -122,9 +140,8 @@ class RegistroParteDos : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun getClientRol (): Rol?
+    private fun getClientRol(callback: (Rol?) -> Unit)
     {
-        var sendRol:Rol = Rol("", "", "")
         // if roles are not created, create them
         FirebaseDatabase.getInstance().getReference("Roles").get().addOnSuccessListener {
             if (!it.exists()) {
@@ -132,10 +149,10 @@ class RegistroParteDos : AppCompatActivity() {
                 // get and return administrator role
                 FirebaseDatabase.getInstance().getReference("Roles").get().addOnSuccessListener {
                     val roles = it.children.map { it.getValue(Rol::class.java) }
-                    val clienteRol = roles.firstOrNull { it?.idRol == "Administrador" }
+                    val clienteRol = roles.firstOrNull { it?.nombreRol == "Administrador" }
                     if (clienteRol != null) {
-                        Toast.makeText(this, "Rol Administrador encontrado: ${clienteRol.idRol}", Toast.LENGTH_SHORT).show()
-                        sendRol = clienteRol
+                        Toast.makeText(this, "Rol Administrador encontrado: ${clienteRol.nombreRol}", Toast.LENGTH_SHORT).show()
+                        callback(clienteRol)
                     } else {
                         Toast.makeText(this, "Rol Administrador no encontrado", Toast.LENGTH_SHORT).show()
                     }
@@ -151,12 +168,12 @@ class RegistroParteDos : AppCompatActivity() {
             val roles = snapshot.children.mapNotNull { it.getValue(Rol::class.java) }
 
             // Encontramos el primer rol cuyo idRol sea "Cliente"
-            val clienteRol: Rol? = roles.firstOrNull { it.idRol == "Cliente" }
+            val clienteRol: Rol? = roles.firstOrNull { it.nombreRol == "Cliente" }
 
             if (clienteRol != null) {
                 // Aquí puedes usar el rol encontrado
-                Toast.makeText(this, "Rol Cliente encontrado: ${clienteRol.idRol}", Toast.LENGTH_SHORT).show()
-                sendRol = clienteRol
+                Toast.makeText(this, "Rol Cliente encontrado: ${clienteRol.nombreRol}", Toast.LENGTH_SHORT).show()
+                callback(clienteRol)
             } else {
                 // Manejo cuando no se encuentra el rol "Cliente"
                 Toast.makeText(this, "Rol Cliente no encontrado", Toast.LENGTH_SHORT).show()
@@ -165,7 +182,6 @@ class RegistroParteDos : AppCompatActivity() {
             // Manejo de error en caso de que falle la obtención de los roles
             Toast.makeText(this, "Error al obtener roles", Toast.LENGTH_SHORT).show()
         }
-        return sendRol
     }
 
     private fun generateRoles()

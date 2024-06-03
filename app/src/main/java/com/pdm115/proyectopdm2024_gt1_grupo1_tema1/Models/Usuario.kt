@@ -6,7 +6,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class Usuario(
     // idUsuario, DUI, nombreCompleto, nombreUsuario, correoUsuario, clave, rol, avatarPath
-    val isUsuario: String,
+    val idUsuario: String,
     val nombreCompleto: String,
     val nombreUsuario: String,
     val correoUsuario: String,

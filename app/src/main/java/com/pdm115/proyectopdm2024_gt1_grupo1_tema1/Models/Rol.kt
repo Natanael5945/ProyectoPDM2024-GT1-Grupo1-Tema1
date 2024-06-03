@@ -5,4 +5,6 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class Rol(
     val idRol: String, val nombreRol: String, val descripcionRol: String
-): Parcelable
+): Parcelable {
+    constructor(): this ("", "", "")
+}
