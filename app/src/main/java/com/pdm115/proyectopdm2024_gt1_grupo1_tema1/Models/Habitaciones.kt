@@ -5,9 +5,14 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Habitaciones(
-    val idHabitacion: Int,
+    val idHabitacion: String,
+    val nombreHabitacion: String,
+    val descripcionHabitacion: String,
     val numCamas: Int,
     val numBanios: Int,
-    val personasMaximo: Int
-
+    val personasMaximo: Int,
+    val precio: Double,
+    val calificaiones: List<CalificacionesHabitacion>,
+    val thumbnail: String,
+    val imagenes: List<String>
 ):Parcelable

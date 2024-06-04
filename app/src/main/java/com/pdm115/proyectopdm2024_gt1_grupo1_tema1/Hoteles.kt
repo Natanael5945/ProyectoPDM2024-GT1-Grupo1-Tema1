@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.FirebaseDatabase
+import com.pdm115.proyectopdm2024_gt1_grupo1_tema1.Data.Services.HotelService
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,13 +25,23 @@ class Hoteles : Fragment(), OnButtonClickListener{
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var hotelService: HotelService
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+        hotelService = HotelService(FirebaseDatabase.getInstance())
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        // Mueve tu código que accede a la vista aquí
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
