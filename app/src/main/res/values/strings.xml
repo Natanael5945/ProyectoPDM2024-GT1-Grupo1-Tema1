@@ -50,4 +50,22 @@
     <string name="hotel">Hoteles</string>
     <string name="description_hotel">Descripción</string>
     <string name="description_content">Contenido de la descripción</string>
+    <string name="popular_rooms">Habitaciones populares</string>
+    <string name="search_here">Buscar habitación...</string>
+    <string name="name_popular_rooms">Habitación doble</string>
+    <string name="per_person">p/p</string>
+    <string name="additional_service">Servicios adicionales</string>
+    <string name="name_service">Nombre servicio</string>
+    <string name="reserve">Reservar</string>
+    <string name="see_everything">Ver todo</string>
+    <string name="service">Servicios</string>
+    <string name="total_to_pay">TOTAL A PAGAR</string>
+    <string name="bedroom">Habitación ##</string>
+    <string name="qualification">Calificación</string>
+    <string name="qualification_description">Cuando nos califica nos ayuda a mejorar</string>
+    <string name="qualification_here">Califica nuestro hotel aqui</string>
+    <string name="comment">Ingresa tu calificación al hotel</string>
+    <string name="qualify">Calificar</string>
+    <string name="delete_comment">Borrar comentario</string>
+    <string name="send">Enviar</string>
 </resources>
