@@ -5,6 +5,6 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Boletines(
-    val idBoletin: Int,
+    val idBoletin: String,
     val correoBoletin: String
 ):Parcelable

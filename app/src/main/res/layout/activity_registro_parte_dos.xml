@@ -56,6 +56,7 @@
         android:paddingEnd="20dp"
         android:textColorHint="@color/verde_hint"
         android:textSize="14sp"
+        android:value="caeher"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_registro_parte2" />
@@ -93,6 +94,7 @@
         android:paddingEnd="20dp"
         android:textColorHint="@color/verde_hint"
         android:textSize="14sp"
+        android:value="password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
@@ -131,6 +133,7 @@
         android:paddingEnd="20dp"
         android:textColorHint="@color/verde_hint"
         android:textSize="14sp"
+        android:value="password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"

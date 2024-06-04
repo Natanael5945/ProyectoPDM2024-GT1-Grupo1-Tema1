@@ -22,8 +22,15 @@ class RegistroCompletado : AppCompatActivity() {
         val btnRegistrarse: Button = findViewById(R.id.btn_ingresar_bienvenido)
 
         btnRegistrarse.setOnClickListener {
-            val intent = Intent(this, PrincipalConMenus::class.java)
-            startActivity(intent)
+//            val intent = Intent(this, PrincipalConMenus::class.java)
+//            startActivity(intent)
+            goLoginView()
         }
+    }
+
+    private fun goLoginView ()
+    {
+        val intent: Intent = Intent(this, IniciarSesion::class.java)
+        startActivity(intent)
     }
 }

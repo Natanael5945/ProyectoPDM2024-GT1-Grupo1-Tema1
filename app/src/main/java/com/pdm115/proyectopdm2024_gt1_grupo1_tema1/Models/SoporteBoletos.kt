@@ -5,9 +5,10 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class SoporteBoletos(
-
-    val idSoporteBoletos: Int,
-    val estadoBoleto: String,
-    val descripcionBoleto: String
-
-): Parcelable
+    val idSoporteBoletos: String,
+    val estadoBoleto: String?,
+    val descripcionBoleto: String?,
+    val usuario: String?
+): Parcelable {
+    constructor(): this("", null, null, null)
+}

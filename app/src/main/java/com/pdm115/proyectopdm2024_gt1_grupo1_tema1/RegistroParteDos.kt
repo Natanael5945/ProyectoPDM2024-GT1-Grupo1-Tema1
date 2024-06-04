@@ -12,15 +12,25 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
+import com.pdm115.proyectopdm2024_gt1_grupo1_tema1.Data.FirebaseClient
+import com.pdm115.proyectopdm2024_gt1_grupo1_tema1.Data.Services.AuthService
+import com.pdm115.proyectopdm2024_gt1_grupo1_tema1.Data.Services.RolService
+import com.pdm115.proyectopdm2024_gt1_grupo1_tema1.Data.Services.UsuarioService
 import com.pdm115.proyectopdm2024_gt1_grupo1_tema1.Models.Rol
 import com.pdm115.proyectopdm2024_gt1_grupo1_tema1.Models.Usuario
 import java.util.UUID
+import javax.inject.Inject
 
 class RegistroParteDos : AppCompatActivity() {
 
     private lateinit var nombreUsuario: EditText
     private lateinit var contrasena: EditText
     private lateinit var confirmarContrasena: EditText
+
+    private lateinit var rolService: RolService
+    private lateinit var usuarioService: UsuarioService
+    private lateinit var authService: AuthService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,10 +42,17 @@ class RegistroParteDos : AppCompatActivity() {
             insets
         }
 
+        // Inicializa los servicios
+        val firebaseClient = FirebaseClient()
+        rolService = RolService(firebaseClient.db)
+        usuarioService = UsuarioService(firebaseClient.db)
+        authService = AuthService(firebaseClient)
+
         this.bindEditText()
         val btnRegistrarse: Button = findViewById(R.id.btn_registrarme_registro_parte2)
         val btnRegresar: Button = findViewById(R.id.btn_anterior_registro_parte2)
         val intentA1 = intent
+
         val nombreCompleto = intentA1.getStringExtra("nombreCompleto")
         val correoElectronico = intentA1.getStringExtra("correoElectronico")
         val fechaNacimiento = intentA1.getStringExtra("fechaNacimiento")
@@ -49,25 +66,40 @@ class RegistroParteDos : AppCompatActivity() {
                 Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            getClientRol { clienteRol ->
-                if (clienteRol != null) {
-                    if (clienteRol.nombreRol != "") {
-                        val nuevoUsuario = Usuario(
-                            idUsuario = UUID.randomUUID().toString(),
-                            nombreUsuario = nombreUsuario.text.toString(),
-                            nombreCompleto = nombreCompleto!!,
-                            correoUsuario = correoElectronico!!,
-                            clave = contrasena.text.toString(),
-                            fechaNacimiento = fechaNacimiento!!,
-                            rol = clienteRol,
-                            avatarPath = ""
-                        )
-                        this.crearUsuarioFirebase(nuevoUsuario)
+
+            rolService.getClientRol { result ->
+                result.onSuccess { rol ->
+                    if (rol != null) {
+                        Toast.makeText(this, "Rol de cliente obtenido " + rol.nombreRol, Toast.LENGTH_SHORT).show()
+                        if (rol.nombreRol != "") {
+                            val nuevoUsuario = Usuario(
+                                idUsuario = UUID.randomUUID().toString(),
+                                nombreUsuario = nombreUsuario.text.toString(),
+                                nombreCompleto = nombreCompleto!!,
+                                correoUsuario = correoElectronico!!,
+                                clave = contrasena.text.toString(),
+                                fechaNacimiento = fechaNacimiento!!,
+                                rol = rol,
+                                dui = "",
+                                avatarPath = ""
+                            )
+                            crearUsuarioFirebase(nuevoUsuario)
+                        }
+                    } else {
+                        Toast.makeText(this, "Rol no encontrado", Toast.LENGTH_SHORT).show()
                     }
+                }.onFailure { exception ->
+                    Toast.makeText(this, "Error al obtener el rol: ${exception.message}", Toast.LENGTH_SHORT).show()
                 }
             }
 
+            rolService.getClientRol { clienteRol ->
+                if (clienteRol != null) {
 
+                } else {
+                    Toast.makeText(this, "Error al obtener el rol de cliente", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
 
         btnRegresar.setOnClickListener {
@@ -95,43 +127,43 @@ class RegistroParteDos : AppCompatActivity() {
     private fun crearUsuarioFirebase(nuevoUsuario: Usuario)
     {
 
-        existUserFirebase(nuevoUsuario) { exist ->
-            if (exist as Boolean) {
+        usuarioService.existUsuario(nuevoUsuario.correoUsuario) { exists ->
+            if (exists) {
                 // user already exists
                 Toast.makeText(this, "El usuario ya existe", Toast.LENGTH_SHORT).show()
             } else {
-                // register on firebasedatabase, then and firebase auth
-        FirebaseDatabase.getInstance().getReference("Usuarios").child(nuevoUsuario.idUsuario).setValue(nuevoUsuario).addOnSuccessListener {
-                Toast.makeText(this, "Usuario registrado", Toast.LENGTH_SHORT).show()
-                    // register on firebase auth
-                    FirebaseAuth.getInstance().createUserWithEmailAndPassword(nuevoUsuario.correoUsuario, nuevoUsuario.clave).addOnSuccessListener {
-                        Toast.makeText(this, "Usuario registrado en Firebase Auth", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this, RegistroCompletado::class.java)
-                        startActivity(intent)
-                    }.addOnFailureListener {
-                        Toast.makeText(this, "Error al registrar usuario en Firebase Auth", Toast.LENGTH_SHORT).show()
-                        //- delete usuario
-                        FirebaseDatabase.getInstance().getReference("Usuarios").child(nuevoUsuario.idUsuario).removeValue()
+                Toast.makeText(this, "Registrando usuario", Toast.LENGTH_SHORT).show()
+                usuarioService.existCollection { existCol ->
+                    if (existCol) {
+                        usuarioService.createUsuario(nuevoUsuario) { it ->
+                            if (it) {
+                                authService.createAccount(nuevoUsuario.correoUsuario,nuevoUsuario.clave) { lr ->
+                                    if (lr) {
+                                        Toast.makeText(this, "Usuario registrado", Toast.LENGTH_SHORT).show()
+                                        goRegistroCompletadoIntent()
+                                    } else {
+                                        Toast.makeText(this, "Error al registrar usuario", Toast.LENGTH_SHORT).show()
+                                        //- delete usuario
+                                        usuarioService.deleteUsuario(nuevoUsuario.idUsuario) { _ -> }
+                                        return@createAccount
+                                    }
+                                }
+                            } else {
+                                Toast.makeText(this, "Error al registrar usuario", Toast.LENGTH_SHORT).show()
+                            }
+                        }
                     }
-                }.addOnFailureListener {
-                    Toast.makeText(this, "Error al registrar usuario", Toast.LENGTH_SHORT).show()
                 }
+
             }
         }
 
-        
     }
 
-    private fun existUserFirebase(nuevoUsuario: Usuario, callback: (Boolean) -> Unit) {
-        
-
-        val databaseReference = FirebaseDatabase.getInstance().getReference("Usuarios")
-        val query = databaseReference.orderByChild("correoUsuario").equalTo(nuevoUsuario.correoUsuario)
-        query.get().addOnSuccessListener {
-            callback(it.exists())
-        }.addOnFailureListener {
-            callback(false)
-        }
+    private fun goRegistroCompletadoIntent()
+    {
+        val intent = Intent(this, RegistroCompletado::class.java)
+        startActivity(intent)
     }
 
     private fun goLoginIntent()
@@ -140,51 +172,7 @@ class RegistroParteDos : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun getClientRol(callback: (Rol?) -> Unit)
-    {
-        // if roles are not created, create them
-        FirebaseDatabase.getInstance().getReference("Roles").get().addOnSuccessListener {
-            if (!it.exists()) {
-                generateRoles()
-                // get and return administrator role
-                FirebaseDatabase.getInstance().getReference("Roles").get().addOnSuccessListener {
-                    val roles = it.children.map { it.getValue(Rol::class.java) }
-                    val clienteRol = roles.firstOrNull { it?.nombreRol == "Administrador" }
-                    if (clienteRol != null) {
-                        Toast.makeText(this, "Rol Administrador encontrado: ${clienteRol.nombreRol}", Toast.LENGTH_SHORT).show()
-                        callback(clienteRol)
-                    } else {
-                        Toast.makeText(this, "Rol Administrador no encontrado", Toast.LENGTH_SHORT).show()
-                    }
-                }.addOnFailureListener {
-                    Toast.makeText(this, "Error al obtener roles", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }.addOnFailureListener {
-            Toast.makeText(this, "Error al obtener roles", Toast.LENGTH_SHORT).show()
-        }
-        // get all roles from firebase
-        FirebaseDatabase.getInstance().getReference("Roles").get().addOnSuccessListener { snapshot ->
-            val roles = snapshot.children.mapNotNull { it.getValue(Rol::class.java) }
-
-            // Encontramos el primer rol cuyo idRol sea "Cliente"
-            val clienteRol: Rol? = roles.firstOrNull { it.nombreRol == "Cliente" }
-
-            if (clienteRol != null) {
-                // Aquí puedes usar el rol encontrado
-                Toast.makeText(this, "Rol Cliente encontrado: ${clienteRol.nombreRol}", Toast.LENGTH_SHORT).show()
-                callback(clienteRol)
-            } else {
-                // Manejo cuando no se encuentra el rol "Cliente"
-                Toast.makeText(this, "Rol Cliente no encontrado", Toast.LENGTH_SHORT).show()
-            }
-        }.addOnFailureListener {
-            // Manejo de error en caso de que falle la obtención de los roles
-            Toast.makeText(this, "Error al obtener roles", Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    private fun generateRoles()
+    private fun generateRoles(callback: (Rol) -> Unit)
     {
         val roles = listOf(
             Rol(UUID.randomUUID().toString(), "Cliente", "Cliente de la aplicación"),
@@ -193,5 +181,7 @@ class RegistroParteDos : AppCompatActivity() {
         roles.forEach {
             FirebaseDatabase.getInstance().getReference("Roles").child(it.idRol).setValue(it)
         }
+
+        callback(roles.first { it.nombreRol == "Administrador" })
     }
 }
