@@ -5,6 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.fragment.app.commit
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,11 +38,34 @@ class InfoHabitacionReservaActiva : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(
+        val view = inflater.inflate(
             R.layout.fragment_info_habitacion_reserva_activa,
             container,
             false
         )
+
+        // Encontrar el RecyclerView utilizando la vista inflada
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view_servicios_adicionales_contratados)
+
+        // Configurar el LayoutManager
+        recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
+
+        // Configurar el Adaptador
+        val adapterHabitaciones = ServiciosContratadosAdapter()
+        recyclerView.adapter = adapterHabitaciones
+
+        val button = view.findViewById<Button>(R.id.btn_calificar_reserva_activa)
+        button.setOnClickListener {
+            val fragment = HabitacionCalificacion()
+
+            parentFragmentManager.commit {
+                replace(R.id.frame_contenedor, fragment)
+                addToBackStack(null)  // Esto permite volver atrás
+            }
+        }
+
+
+        return view
     }
 
     companion object {

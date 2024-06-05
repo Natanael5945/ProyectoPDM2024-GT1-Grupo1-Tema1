@@ -3,6 +3,7 @@ package com.pdm115.proyectopdm2024_gt1_grupo1_tema1
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -71,104 +72,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent2)
         }
 
-//        var listCalHotel: List<CalificacionesHotel>
-//        var listCalHabL: List<CalificacionesHabitacion>
-//        var listHabitaciones: List<HabitacionModel>
-//
-//        val calificacionHotel1 = CalificacionesHotel(UUID.randomUUID().toString(), 5)
-//        val calificacionHabitacion1 = CalificacionesHabitacion(UUID.randomUUID().toString(), 5)
-//
-//        listCalHabL = listOf(calificacionHabitacion1)
-//        listCalHotel = listOf(calificacionHotel1)
-//
-//
-//        val habitacionHotel1 = HabitacionModel(
-//            UUID.randomUUID().toString(),
-//            "Suite Marina",
-//            "Una lujosa suite con una impresionante vista panorámica del océano, decorada con un estilo moderno y elegante.",
-//            2,
-//            1,
-//            2,
-//            100.0,
-//            listCalHabL,
-//            "https://i.ibb.co/VV9DzFs/habitacion-dos.png",
-//            listOf("https://i.ibb.co/YXQNWN0/habitacion-cinco.png","https://i.ibb.co/vdr3X9R/habitacion-cuatro.png", "https://i.ibb.co/CnX8Krn/habitacion-tres.png")
-//        )
-//
-//        val habitacionHotel2 = HabitacionModel(
-//            UUID.randomUUID().toString(),
-//            "Refugio del Atardecer",
-//            "Disfruta del confort y la calma en esta habitación que ofrece vistas inolvidables de los atardeceres sobre el mar.",
-//            2,
-//            1,
-//            2,
-//            100.0,
-//            listCalHabL,
-//            "https://i.ibb.co/vdr3X9R/habitacion-cuatro.png",
-//            listOf("https://i.ibb.co/YXQNWN0/habitacion-cinco.png", "https://i.ibb.co/CnX8Krn/habitacion-tres.png", "https://i.ibb.co/VV9DzFs/habitacion-dos.png")
-//        )
-//
-//        val nuevoHotel = HotelModel(
-//            UUID.randomUUID().toString(),
-//            "El Oasis del Mar",
-//            "Avenida del Coral, 348, Playa Esmeralda, Cabañas",
-//            "Descubre la magia de alojarte frente al mar en 'El Oasis del Mar', un lugar donde cada detalle está pensado para tu relax y disfrute.",
-//            "12345678",
-//            "https://i.ibb.co/YXQNWN0/habitacion-cinco.png",
-//            listOf(calificacionHotel1),
-//            listOf(habitacionHotel1, habitacionHotel2)
-//        )
-//
-//        hotelService.existCollection {
-//            it.onSuccess {
-//                if (it) {
-//                    Toast.makeText(this, "La colección de hoteles existe", Toast.LENGTH_SHORT).show()
-//                    hotelService.createHotel(nuevoHotel) {
-//                        it.onSuccess {
-//                            Toast.makeText(this, "Hotel creado", Toast.LENGTH_SHORT).show()
-//                        }.onFailure {
-//                            Toast.makeText(this, "Error al crear el hotel", Toast.LENGTH_SHORT).show()
-//                        }
-//                    }
-//                } else {
-//                    Toast.makeText(this, "La colección de hoteles no existe", Toast.LENGTH_SHORT).show()
-//                    hotelService.createHotel(nuevoHotel) {
-//                        it.onSuccess {
-//                            Toast.makeText(this, "Hotel creado", Toast.LENGTH_SHORT).show()
-//                        }.onFailure {
-//                            Toast.makeText(this, "Error al crear el hotel", Toast.LENGTH_SHORT).show()
-//                        }
-//                    }
-//                }
-//            }.onFailure {
-//                Toast.makeText(this, "Error al verificar la existencia de la colección de hoteles", Toast.LENGTH_SHORT).show()
-//            }
-//
-//        }
-
-//        boletinService.existCollection {
-//            if (it) {
-//                Toast.makeText(this, "La colección de boletines existe", Toast.LENGTH_SHORT).show()
-//            } else {
-//                Toast.makeText(this, "La colección de boletines no existe", Toast.LENGTH_SHORT).show()
-//                val newBoletin: Boletines = Boletines(
-//                    UUID.randomUUID().toString(),
-//                    "heac.creative@gmail.com",
-//                )
-//
-//                boletinService.createBoletin(newBoletin) {
-//                    if (it) {
-//                        Toast.makeText(this, "Boletín creado", Toast.LENGTH_SHORT).show()
-//                    } else {
-//                        Toast.makeText(this, "Error al crear el boletín", Toast.LENGTH_SHORT).show()
-//                    }
-//                }
-//            }
-//        }
-//
-
-
-        
+        val txtCalificaciones = findViewById<TextView>(R.id.txt_calificaciones)
+        txtCalificaciones.setOnClickListener {
+            val intent = Intent(this, Calificaciones::class.java)
+            startActivity(intent)
+        }
 
     }
 

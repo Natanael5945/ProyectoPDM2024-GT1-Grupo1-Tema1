@@ -20,6 +20,7 @@
                 android:layout_width="390dp"
                 android:layout_height="260dp"
                 android:layout_margin="10dp"
+                android:padding="10dp"
                 android:src="@drawable/hotel_uno"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -159,8 +160,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:backgroundTint="@color/color_piel"
             app:cardCornerRadius="0dp"
-            app:cardElevation="0dp"
-            app:contentPadding="15dp">
+            app:cardElevation="0dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -175,7 +175,8 @@
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="@color/black"
-                    app:layout_constraintHorizontal_bias="0.0"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintHorizontal_bias="0.05"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
@@ -200,7 +201,7 @@
                     android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="@color/black"
-                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintHorizontal_bias="0.05"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/recycler_view_servicios_adicionales"/>

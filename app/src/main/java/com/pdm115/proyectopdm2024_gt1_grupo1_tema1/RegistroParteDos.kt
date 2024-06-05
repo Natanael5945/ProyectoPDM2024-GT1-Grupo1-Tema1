@@ -4,8 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -21,6 +20,8 @@ import com.pdm115.proyectopdm2024_gt1_grupo1_tema1.Models.Rol
 import com.pdm115.proyectopdm2024_gt1_grupo1_tema1.Models.Usuario
 import java.util.UUID
 import javax.inject.Inject
+import android.widget.EditText
+import android.widget.Toast
 
 class RegistroParteDos : AppCompatActivity() {
 
@@ -104,6 +105,12 @@ class RegistroParteDos : AppCompatActivity() {
 
         btnRegresar.setOnClickListener {
             finish()
+        }
+
+        val txtIniciarSesion = findViewById<TextView>(R.id.txt_ingresa_aqui_registro_parte2)
+        txtIniciarSesion.setOnClickListener {
+            val intent = Intent(this, IniciarSesion::class.java)
+            startActivity(intent)
         }
     }
 

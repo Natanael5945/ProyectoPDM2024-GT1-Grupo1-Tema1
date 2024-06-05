@@ -70,6 +70,10 @@ class Hoteles : Fragment(), OnButtonClickListener{
         transaction.commit()
     }
 
+    override fun onCardClick(position: Int) {
+        TODO("Not yet implemented")
+    }
+
     companion object {
         /**
          * Use this factory method to create a new instance of

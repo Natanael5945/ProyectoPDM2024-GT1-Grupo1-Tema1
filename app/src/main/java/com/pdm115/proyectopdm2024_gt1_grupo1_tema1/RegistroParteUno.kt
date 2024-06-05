@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -50,8 +51,10 @@ class RegistroParteUno : AppCompatActivity() {
             startActivity(intent)
         }
 
-        btnRegresar.setOnClickListener {
-            finish()
+        val txtIniciarSesion = findViewById<TextView>(R.id.txt_ingresa_aqui_registro_parte1)
+        txtIniciarSesion.setOnClickListener {
+            val intent = Intent(this, IniciarSesion::class.java)
+            startActivity(intent)
         }
     }
 
