@@ -3,16 +3,11 @@ package com.pdm115.proyectopdm2024_gt1_grupo1_tema1
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.view.menu.MenuView.ItemView
-import androidx.cardview.widget.CardView
-import androidx.fragment.app.commit
 import androidx.recyclerview.widget.RecyclerView
 
-class InformarcionHotelAdapter(private val listener: OnButtonClickListener): RecyclerView.Adapter<InformarcionHotelAdapter.ViewHolder>() {
-
+class InfoHabitacionSinReservarAdapter: RecyclerView.Adapter<InfoHabitacionSinReservarAdapter.ViewHolder>()  {
 
     private val tipoHabitacionTitulo = arrayOf("Habitación Platinum", "Habitación Silver", "Habitación Gold", "Habitación Ruby", "Habitación Sapphire")
 
@@ -40,13 +35,13 @@ class InformarcionHotelAdapter(private val listener: OnButtonClickListener): Rec
         viewHolder.imagenHabitacion.setImageResource(imgHabitacion[i])
     }
 
-   inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         //creamos variables de los tipos de los componentes de los cuales vamos a pasarles un array de datos
         val tipoHabitacion: TextView
         val precioHabitacion: TextView
         val calNumHabitacion: TextView
         val imagenHabitacion: ImageView
-        private val cardView: CardView = itemView.findViewById(R.id.cardview_habitaciones_sin_reservar)
+
 
         init {
             tipoHabitacion = itemView.findViewById(R.id.txt_titulo_tipo_habitacion_sin_reservar)
@@ -54,17 +49,10 @@ class InformarcionHotelAdapter(private val listener: OnButtonClickListener): Rec
             calNumHabitacion = itemView.findViewById(R.id.txt_calificacion_numerica_habitacion_sin_reservar)
             imagenHabitacion = itemView.findViewById(R.id.imgv_imagen_habitacion_sin_reservar)
 
-            cardView.setOnClickListener {
-                val position = adapterPosition
-                if (position != RecyclerView.NO_POSITION) {
-                    listener.onCardClick(position)
-                }
 
-            }
 
         }
 
 
     }
-
 }

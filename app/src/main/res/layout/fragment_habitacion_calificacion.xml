@@ -25,6 +25,7 @@
                     android:layout_width="390dp"
                     android:layout_height="260dp"
                     android:layout_margin="10dp"
+                    android:padding="10dp"
                     android:src="@drawable/hotel_uno"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -204,26 +205,28 @@
 
                 </androidx.cardview.widget.CardView>
 
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="20dp"
+                    android:text="@string/send"
+                    app:icon="@drawable/icono_enviar"
+                    app:iconGravity="textEnd"
+                    app:iconPadding="6dp"
+                    app:iconSize="24dp"
+                    android:backgroundTint="@color/amarillo"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cardview_servicios_calificacion"/>
+
+
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_margin="20dp"
-            android:text="@string/send"
-            app:icon="@drawable/icono_enviar"
-            app:iconGravity="textEnd"
-            app:iconPadding="6dp"
-            app:iconSize="24dp"
-            android:backgroundTint="@color/amarillo"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/scroll_contendor_calificacion"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

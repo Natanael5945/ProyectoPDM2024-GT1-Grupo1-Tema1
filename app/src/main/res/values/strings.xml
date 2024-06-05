@@ -68,4 +68,13 @@
     <string name="qualify">Calificar</string>
     <string name="delete_comment">Borrar comentario</string>
     <string name="send">Enviar</string>
+    <string name="add_by_price">Agregar por precio</string>
+    <string name="cancel_service">Cancelar servicio</string>
+    <string name="price">Precio</string>
+    <string name="index">Inicio</string>
+    <string name="name_user">Nombre de usuario</string>
+    <string name="time_ranting">5 m</string>
+    <string name="content_qualification">Contenido de la calificación</string>
+    <string name="example_qualification">Califiación: 5.0 pts</string>
+
 </resources>

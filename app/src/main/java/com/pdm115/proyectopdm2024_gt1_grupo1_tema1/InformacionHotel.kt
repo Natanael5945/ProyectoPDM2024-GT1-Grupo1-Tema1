@@ -20,7 +20,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [InformacionHotel.newInstance] factory method to
  * create an instance of this fragment.
  */
-class InformacionHotel : Fragment() {
+class InformacionHotel : Fragment(), OnButtonClickListener{
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -47,13 +47,22 @@ class InformacionHotel : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(context)
 
         // Configurar el Adaptador
-        val adapter = InformarcionHotelAdapter()
+        val adapter = InformarcionHotelAdapter(this)
         recyclerView.adapter = adapter
 
         return view
     }
 
+    override fun onButtonClick(position: Int) {
+        TODO("Not yet implemented")
+    }
 
+
+    override fun onCardClick(position: Int) {
+        // Lógica para abrir el nuevo fragmento
+        val fragment = InfoHabitacionSinReservar()
+        fragmentManager?.beginTransaction()?.replace(R.id.frame_contenedor, fragment)?.addToBackStack(null)?.commit()
+    }
 
     companion object {
         /**

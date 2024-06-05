@@ -25,6 +25,7 @@
                android:layout_width="390dp"
                android:layout_height="260dp"
                android:layout_margin="10dp"
+               android:padding="10dp"
                android:src="@drawable/hotel_uno"
                app:layout_constraintEnd_toEndOf="parent"
                app:layout_constraintStart_toStartOf="parent"
@@ -157,7 +158,8 @@
                app:layout_constraintTop_toBottomOf="@id/txt_titulo_calificacion" />
 
            <Button
-               android:layout_width="140dp"
+               android:id="@+id/btn_calificar_reserva_activa"
+               android:layout_width="120dp"
                android:layout_height="wrap_content"
                android:layout_marginTop="60dp"
                android:backgroundTint="@color/blanco_fondo"
@@ -216,7 +218,7 @@
                android:backgroundTint="@color/color_piel"
                app:cardCornerRadius="0dp"
                app:cardElevation="0dp"
-               app:contentPadding="15dp">
+               >
 
                <androidx.constraintlayout.widget.ConstraintLayout
                    android:layout_width="match_parent"
@@ -231,7 +233,8 @@
                        android:textSize="16sp"
                        android:textStyle="bold"
                        android:textColor="@color/black"
-                       app:layout_constraintHorizontal_bias="0.0"
+                       android:layout_marginTop="10dp"
+                       app:layout_constraintHorizontal_bias="0.05"
                        app:layout_constraintStart_toStartOf="parent"
                        app:layout_constraintEnd_toEndOf="parent"
                        app:layout_constraintTop_toTopOf="parent"/>
@@ -250,26 +253,25 @@
 
            </androidx.cardview.widget.CardView>
 
-
+           <Button
+               android:layout_width="0dp"
+               android:layout_height="48dp"
+               android:layout_margin="20dp"
+               android:text="@string/save"
+               app:icon="@drawable/icon_mas"
+               app:iconGravity="textEnd"
+               app:iconPadding="6dp"
+               app:iconSize="24dp"
+               android:backgroundTint="@color/amarillo"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@id/cardview_servicios_reserva_activa"/>
 
        </androidx.constraintlayout.widget.ConstraintLayout>
 
    </ScrollView>
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_margin="20dp"
-            android:text="@string/save"
-            app:icon="@drawable/icon_mas"
-            app:iconGravity="textEnd"
-            app:iconPadding="6dp"
-            app:iconSize="24dp"
-            android:backgroundTint="@color/amarillo"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/scroll_contendor_reserva_activa"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

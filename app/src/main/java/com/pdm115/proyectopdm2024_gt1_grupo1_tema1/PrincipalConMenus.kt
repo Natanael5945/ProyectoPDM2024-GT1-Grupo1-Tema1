@@ -51,6 +51,8 @@ class PrincipalConMenus : AppCompatActivity() {
             insets
         }
 
+
+
         menuNavegacion = findViewById(R.id.menu_inferior)
         menuNavegacion.setOnNavigationItemSelectedListener(mOnNavegacionMenu)
         //Fragmento con el cual se mostrara en la vista sino se pone no sale nada al comienzo hasta dar clic

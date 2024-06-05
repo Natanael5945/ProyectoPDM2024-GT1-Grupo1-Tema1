@@ -3,6 +3,7 @@ package com.pdm115.proyectopdm2024_gt1_grupo1_tema1
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -23,6 +24,12 @@ class RegistroParteUno : AppCompatActivity() {
 
         btnRegistrarse.setOnClickListener {
             val intent = Intent(this, RegistroParteDos::class.java)
+            startActivity(intent)
+        }
+
+        val txtIniciarSesion = findViewById<TextView>(R.id.txt_ingresa_aqui_registro_parte1)
+        txtIniciarSesion.setOnClickListener {
+            val intent = Intent(this, IniciarSesion::class.java)
             startActivity(intent)
         }
     }

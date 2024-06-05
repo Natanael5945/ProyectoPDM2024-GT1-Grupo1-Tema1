@@ -5,9 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 
-class ReservasActivasAdapter: RecyclerView.Adapter<ReservasActivasAdapter.ViewHolder>() {
+class ReservasActivasAdapter(private val listener: OnButtonClickListener): RecyclerView.Adapter<ReservasActivasAdapter.ViewHolder>() {
 
     private val tipoHabitacionTitulo = arrayOf("Habitación Platinum", "Habitación Silver", "Habitación Gold", "Habitación Ruby", "Habitación Sapphire")
 
@@ -42,12 +43,21 @@ class ReservasActivasAdapter: RecyclerView.Adapter<ReservasActivasAdapter.ViewHo
         val precioHabitacion: TextView
         val calNumHabitacion: TextView
         val imagenHabitacion: ImageView
+        private val cardView: CardView = itemView.findViewById(R.id.cardview_reservas_activas)
 
         init {
             tipoHabitacion = itemView.findViewById(R.id.txt_titulo_reserva_habitacion)
             precioHabitacion = itemView.findViewById(R.id.txt_precio_habitacion)
             calNumHabitacion = itemView.findViewById(R.id.txt_calificacion_numerica_habitacion)
             imagenHabitacion = itemView.findViewById(R.id.imgv_imagen_habitacion)
+
+            cardView.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    listener.onCardClick(position)
+                }
+
+            }
         }
 
     }
